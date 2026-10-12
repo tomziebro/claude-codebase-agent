@@ -1,0 +1,44 @@
+{
+  "name": "claude-codebase-agent",
+  "version": "0.1.0",
+  "description": "A TypeScript CLI agent that uses Claude's tool use to explore a codebase and answer questions about it, with streaming and tests.",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "codebase-agent": "dist/cli.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "dev": "tsx src/cli.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "tsx --test \"test/**/*.test.ts\"",
+    "prepublishOnly": "npm run typecheck && npm test && npm run build"
+  },
+  "keywords": [
+    "claude",
+    "anthropic",
+    "agent",
+    "tool-use",
+    "llm",
+    "cli",
+    "code-search"
+  ],
+  "author": "Tom Ziebro",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tomziebro/claude-codebase-agent.git"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0"
+  }
+}
